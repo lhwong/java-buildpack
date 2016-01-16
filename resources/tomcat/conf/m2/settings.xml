@@ -245,6 +245,7 @@ under the License.
     </profile>
     -->
     <profile>
+	<id>wb</id>
 	<repository> 
 		<id>mvnrepository</id> 
 		<url>http://kie-wb.cfapps.io/maven2</url> 
@@ -267,4 +268,7 @@ under the License.
     <activeProfile>anotherAlwaysActiveProfile</activeProfile>
   </activeProfiles>
   -->
+    <activeProfiles>
+    <activeProfile>wb</activeProfile>
+  </activeProfiles>
 </settings>

@@ -130,6 +130,29 @@ under the License.
       <passphrase>optional; leave empty if not used.</passphrase>
     </server>
     -->
+    <server>
+      <id>mvnrepository</id>
+      <username>kieserver</username>
+      <password>kieserver1!</password>
+	<configuration>
+        <wagonProvider>httpclient</wagonProvider>
+        <httpConfiguration>
+          <all>
+            <usePreemptive>true</usePreemptive>
+          </all>
+        </httpConfiguration>
+      </configuration>
+      <!--<configuration>
+        <httpHeaders>
+          <property>
+            <name>Authorization</name>
+             Base64-encoded "kieserver:kieserver1!" 
+            <value>Basic a2llc2VydmVyOmtpZXNlcnZlcjEh</value>
+          </property>
+        </httpHeaders>
+      </configuration>-->	
+
+    </server>
   </servers>
 
   <!-- mirrors
@@ -156,6 +179,14 @@ under the License.
       <url>http://my.repository.com/repo/path</url>
     </mirror>
      -->
+<!--<mirror>
+  <name>internal</name>
+  <url>http://192.168.1.69:8080/kie-wb/maven2</url>
+  <mirrorOf>*</mirrorOf>
+  <layout>default</layout> 
+</mirror>-->
+
+
   </mirrors>
 
   <!-- profiles
@@ -246,16 +277,22 @@ under the License.
     -->
     <profile>
 	<id>wb</id>
+        <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
 	<repository> 
 		<id>mvnrepository</id> 
-		<url>http://kie-wb.cfapps.io/maven2</url> 
-		<snapshots> 
-			<enabled>false</enabled> 
-		</snapshots> 
-		<releases> 
-			<enabled>true</enabled> 
-		</releases> 
+		<url>http://kie-wb.cfapps.io/maven2</url>
+		<!--<layout>default</layout> 
+		<releases>
+			<updatePolicy>always</updatePolicy>
+		</releases>	
+		<snapshots>
+			<updatePolicy>always</updatePolicy>
+		</snapshots>-->
 	</repository>
+	</repositories>
     </profile>		
 
   </profiles>
